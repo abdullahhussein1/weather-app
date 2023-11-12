@@ -12,6 +12,7 @@ function WeatherApp() {
   async function getWeatherByCityName(cityName) {
     const response = await axios.get(getWeatherUrlByCityName(cityName));
     const data = await response.data;
+    console.log(data);
     setData(data);
 
     setSrc(`https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`);
@@ -24,7 +25,7 @@ function WeatherApp() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-slate-900 flex flex-col gap-3 justify-center items-center">
+    <div className="min-h-screen bg-slate-900 flex flex-col gap-4 justify-center items-center">
       <LocationSearchForm
         cityName={cityName}
         setCityName={setCityName}
